@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oil Spills and Marine Ecosystem</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #1e3a8a, #60a5fa);
+      color: #1f2937;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(30, 58, 138, 0.9);
+      backdrop-filter: blur(10px);
+    }
+    .section {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+      padding: 20px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      background: #f3f4f6;
+    }
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #1e40af;
+      color: white;
+    }
+    canvas {
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    .footer {
+      background: #1e3a8a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body data-aos="fade-up">
+  <!-- Navigation Bar -->
+  <nav class="navbar py-4">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-white text-2xl font-bold">Oil Spills & Marine Ecosystem</h1>
+      <div>
+        <a href="#introduction" class="text-white mx-2 hover:underline">Introduction</a>
+        <a href="#causes" class="text-white mx-2 hover:underline">Causes</a>
+        <a href="#impacts" class="text-white mx-2 hover:underline">Impacts</a>
+        <a href="#case-studies" class="text-white mx-2 hover:underline">Case Studies</a>
+        <a href="#references" class="text-white mx-2 hover:underline">References</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4">
+    <!-- Section 1: Introduction -->
+    <div id="introduction" class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">1. Introduction</h2>
+      <p>Oil spills, the accidental release of petroleum hydrocarbons into marine environments, pose a severe threat to ecosystems and economies. These incidents disrupt marine food webs, harm wildlife, and degrade habitats, often requiring decades for recovery. The Deepwater Horizon spill (2010) released 134 million gallons, impacting 1,300 miles of coastline and killing thousands of animals. Research underscores the urgency of prevention and rapid response to mitigate long-term ecological damage. Advanced technologies, stricter regulations, and public awareness are critical to reducing spill frequency and impact. This website explores causes, impacts, and solutions, drawing on NOAA data and global case studies to highlight the crisis and advocate for sustainable marine conservation.</p>
+      <img src="https://via.placeholder.com/600x300?text=Oil+Spill+Ocean" alt="Aerial view of oil spill forming slick in ocean (NOAA-style)">
+    </div>
+
+    <!-- Section 2: Definition of Oil Spills -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">2. Definition</h2>
+      <p>An oil spill is the unintentional discharge of crude oil or refined petroleum into marine or coastal environments, often during extraction, transport, or storage. Spills create toxic slicks that spread rapidly, contaminating water and habitats. NOAA identifies oil spills as a major marine threat, with toxic compounds causing acute and chronic harm to species. Small spills, though less publicized, occur frequently—3,000 annually in U.S. waters—damaging sensitive ecosystems like wetlands. Effective management requires rapid containment and bioremediation, but only 10-15% of oil is typically recovered, emphasizing the need for prevention over cleanup.</p>
+      <img src="https://via.placeholder.com/600x300?text=Oil+Slick" alt="Close-up of oil slick on water surface">
+    </div>
+
+    <!-- Section 3: Causes of Oil Spills -->
+    <div id="causes" class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">3. Causes</h2>
+      <p>Oil spills result from accidents (60%), natural disasters (25%), and human errors (15%). Tanker collisions, rig explosions, and pipeline ruptures are common accidents, as seen in the Exxon Valdez spill (1989). Hurricanes and earthquakes damage infrastructure, contributing to spills. Human errors during drilling or transport exacerbate risks. NOAA data shows a 70% decline in large spills since the 1970s due to regulations, but offshore drilling and Arctic exploration increase vulnerability. Preventive measures like double-hulled tankers and satellite monitoring can reduce risks by 50%, yet global enforcement remains inconsistent.</p>
+      <table>
+        <tr><th>Cause</th><th>Percentage</th></tr>
+        <tr><td>Accidents</td><td>60%</td></tr>
+        <tr><td>Natural Disasters</td><td>25%</td></tr>
+        <tr><td>Human Errors</td><td>15%</td></tr>
+      </table>
+      <canvas id="spillCausesChart"></canvas>
+    </div>
+
+    <!-- Section 4: Impact on Wildlife -->
+    <div id="impacts" class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">4. Wildlife Impact</h2>
+      <p>Oil spills devastate marine wildlife. Birds lose insulation from oil-coated feathers, leading to hypothermia; 30% of affected seabirds die. Marine mammals suffer fur damage, impairing buoyancy. Fish ingest toxins, causing heart and reproductive issues. NOAA estimates population declines of 20-50% in spill zones. Cleanup efforts, like high-pressure washing, can further harm species. Long-term monitoring reveals chronic effects, with some populations, like Gulf dolphins, showing reduced reproduction rates a decade after spills.</p>
+      <img src="https://via.placeholder.com/600x300?text=Oiled+Bird" alt="Seabird covered in oil struggling on shore">
+    </div>
+
+    <!-- Section 5: Food Chain Disruption -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">5. Food Chain Disruption</h2>
+      <p>Oil spills disrupt marine food webs by killing primary producers like phytoplankton. This reduces food for herbivores, impacting predators and apex species. The Lotka-Volterra model predicts cascading effects, with a 20% plankton loss disrupting fish populations by 15%. The Deepwater Horizon spill reduced zooplankton by 25%, affecting fisheries. Recovery takes 10-20 years, with some ecosystems losing stability permanently. Ecosystem-based management is crucial for restoration.</p>
+      <img src="https://via.placeholder.com/600x300?text=Food+Chain" alt="Diagram of marine food chain disruption">
+    </div>
+
+    <!-- Section 6: Habitat Degradation -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">6. Habitat Degradation</h2>
+      <p>Oil spills degrade critical habitats like mangroves, coral reefs, and wetlands. Residual oil in sediments persists for decades, reducing biodiversity by 40% in affected areas. NOAA data shows that marshes lose 30% of plant cover post-spill, impacting species survival. Restoration, like wetland replanting, is slow and costly. Long-term monitoring is essential to assess habitat recovery and mitigate chronic contamination risks.</p>
+      <img src="https://via.placeholder.com/600x300?text=Damaged+Habitat" alt="Oil-damaged mangrove ecosystem">
+    </div>
+
+    <!-- Section 7: Case Study: Deepwater Horizon -->
+    <div id="case-studies" class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">7. Deepwater Horizon</h2>
+      <p>The Deepwater Horizon spill (2010, Gulf of Mexico) released 134 million gallons of oil, the largest U.S. spill. It killed 82,000 birds, 6,000 sea turtles, and 25,000 marine mammals, damaging 1,300 miles of coastline. Fisheries and tourism suffered $60 billion in losses. A $8.8 billion settlement funds ongoing restoration, including oyster bed rebuilding. NOAA reports persistent impacts on dolphin populations, emphasizing the need for long-term recovery efforts.</p>
+      <img src="https://via.placeholder.com/600x300?text=Deepwater+Spill" alt="Deepwater Horizon oil rig explosion">
+    </div>
+
+    <!-- Section 8: Case Study: Exxon Valdez -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">8. Exxon Valdez</h2>
+      <p>The Exxon Valdez spill (1989, Alaska) released 11 million gallons after a tanker grounding. It killed 250,000 seabirds and 2,800 otters, devastating Prince William Sound. Cleanup methods, like hot-water washing, caused additional habitat damage. NOAA notes that herring populations have not fully recovered. The spill prompted the Oil Pollution Act (1990), improving regulations but highlighting challenges in cold-climate recovery.</p>
+      <img src="https://via.placeholder.com/600x300?text=Exxon+Valdez" alt="Exxon Valdez tanker spill">
+    </div>
+
+    <!-- Section 9: Economic Impacts -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">9. Economic Impacts</h2>
+      <p>Oil spills cause massive economic losses. Deepwater Horizon cost $60 billion, including $23 billion in tourism losses and 20% reduced fisheries output. Coastal communities lose livelihoods, with 30% of fishers facing income drops. NOAA’s $9 billion restoration fund supports recovery, but economic impacts linger longer than ecological ones, requiring sustained investment in affected regions.</p>
+      <img src="https://via.placeholder.com/600x300?text=Economic+Loss" alt="Closed fishery due to spill">
+    </div>
+
+    <!-- Section 10: Cleanup Technologies -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">10. Cleanup Technologies</h2>
+      <p>Cleanup methods include booms, skimmers, dispersants, and bioremediation. Booms contain oil, skimmers remove it, but dispersants can harm marine life. Bioremediation uses microbes to degrade oil, recovering 10-15% of spilled volume. Emerging technologies like oil-absorbing drones improve efficiency by 50%. Research into biodegradable dispersants aims to reduce toxicity, but high costs limit adoption in developing regions.</p>
+      <img src="https://via.placeholder.com/600x300?text=Cleanup+Tech" alt="Oil spill cleanup with booms">
+    </div>
+
+    <!-- Section 11: Prevention Strategies -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">11. Prevention Strategies</h2>
+      <p>Preventing spills requires double-hulled tankers, satellite monitoring, and strict regulations. The Oil Pollution Act (1990) reduced large spills by 70%. AI-based leak detection systems predict spill risks with 80% accuracy. Training programs cut human errors by 20%. However, Arctic drilling and aging infrastructure increase risks, necessitating global standards and renewable energy transitions to reduce oil reliance.</p>
+      <img src="https://via.placeholder.com/600x300?text=Prevention" alt="Double-hulled tanker design">
+    </div>
+
+    <!-- Section 12: Global Spill Trends -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">12. Global Spill Trends</h2>
+      <p>Globally, 3,000 small spills occur annually in U.S. waters, with large spills (>1M gallons) accounting for 90% of volume. The International Tanker Owners Pollution Federation reports a 70% decline in large spills since the 1970s. However, small spills in wetlands cause cumulative damage. Developing regions face higher spill risks due to lax regulations, requiring global enforcement improvements.</p>
+      <table>
+        <tr><th>Impact</th><th>Severity (1-10)</th></tr>
+        <tr><td>Wildlife Harm</td><td>9</td></tr>
+        <tr><td>Food Chain</td><td>7</td></tr>
+        <tr><td>Habitat Loss</td><td>8</td></tr>
+      </table>
+      <canvas id="impactSeverityChart"></canvas>
+    </div>
+
+    <!-- Section 13: Ecological Modeling -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">13. Ecological Modeling</h2>
+      <p>Ecological models like Lotka-Volterra predict that oil spills disrupt trophic interactions, reducing biodiversity by 20-40%. A 25% plankton loss can decrease fish populations by 15%, destabilizing ecosystems. Holling’s resilience theory suggests that sensitive habitats like marshes have low recovery potential. Modeling helps prioritize restoration, but data gaps in deep-sea ecosystems limit accuracy. Advanced simulations are needed for better spill response planning.</p>
+      <img src="https://via.placeholder.com/600x300?text=Ecological+Model" alt="Trophic level diagram">
+    </div>
+
+    <!-- Section 14: Restoration Efforts -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">14. Restoration Efforts</h2>
+      <p>Restoration rebuilds habitats and protects species. NOAA’s $9 billion fund supports marsh replanting and oyster bed restoration. Post-Deepwater Horizon efforts restored 1,500 acres of wetlands. Challenges include slow recovery (10-50 years) and residual oil in sediments. Community-led restoration, like mangrove planting, enhances resilience but requires sustained funding and monitoring to ensure long-term success.</p>
+      <img src="https://via.placeholder.com/600x300?text=Restoration" alt="Wetland restoration project">
+    </div>
+
+    <!-- Section 15: Policy and Regulation -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">15. Policy and Regulation</h2>
+      <p>The Oil Pollution Act (1990) and MARPOL conventions mandate spill response plans, reducing large spills by 70%. Arctic bans on heavy fuel oil could cut spill risks by 30%. Enforcement varies globally, with developing nations facing challenges. Research advocates for unified standards and penalties to deter negligence. Policy integration with climate goals is essential for comprehensive marine protection.</p>
+      <img src="https://via.placeholder.com/600x300?text=Policy" alt="Oil Pollution Act document">
+    </div>
+
+    <!-- Section 16: Environmental Justice -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">16. Environmental Justice</h2>
+      <p>Oil spills disproportionately harm low-income and indigenous coastal communities. Deepwater Horizon caused 30% income loss for Gulf fishers. Restoration funds often bypass these groups, exacerbating inequality. Research calls for equitable compensation and community-led recovery plans. Engaging local stakeholders ensures fair resource allocation and supports livelihoods dependent on healthy marine ecosystems.</p>
+      <img src="https://via.placeholder.com/600x300?text=Community" alt="Coastal community impacted by spill">
+    </div>
+
+    <!-- Section 17: Technological Innovations -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">17. Technological Innovations</h2>
+      <p>Oil-absorbing drones, biodegradable dispersants, and AI spill detection enhance response efficiency. Drones map spills 50% faster; AI predicts trajectories with 80% accuracy. Biodegradable dispersants reduce toxicity by 30%. High costs limit adoption in developing regions, but scalable solutions could cut cleanup times by 40%. Research into nanotechnology-based absorbents promises further advancements.</p>
+      <img src="https://via.placeholder.com/600x300?text=Spill+Tech" alt="Drone used in spill cleanup">
+    </div>
+
+    <!-- Section 18: Climate Change Link -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">18. Climate Change Link</h2>
+      <p>Climate change increases spill risks through frequent storms, causing 20% of U.S. spills from 2000-2020. Rising sea levels threaten refineries, raising spill likelihood by 15%. Oil extraction fuels climate change, creating a feedback loop. Transitioning to renewables could reduce spill risks by 40%. Integrated climate and spill policies are critical for marine ecosystem protection.</p>
+      <img src="https://via.placeholder.com/600x300?text=Storm+Damage" alt="Hurricane-damaged oil platform">
+    </div>
+
+    <!-- Section 19: Public Awareness -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">19. Public Awareness</h2>
+      <p>Awareness campaigns by NOAA and NGOs educate on spill impacts, reaching 10 million users annually via social media. Coastal community programs reduce illegal dumping by 15%. Highlighting wildlife harm and economic losses fosters support for regulations. Continued outreach, including interactive platforms, is vital to drive collective action and sustainable practices globally.</p>
+      <img src="https://via.placeholder.com/600x300?text=Campaign" alt="Public awareness campaign poster">
+    </div>
+
+    <!-- Section 20: Global Case Studies -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">20. Global Case Studies</h2>
+      <p>The Prestige spill (2002, Spain) released 17 million gallons, damaging fisheries and tourism. Niger Delta spills, ongoing since the 1970s, have released 10-15 million gallons, devastating mangroves. These cases highlight the need for international response frameworks. Consistent enforcement and technology sharing can reduce global spill impacts, particularly in vulnerable regions.</p>
+      <img src="https://via.placeholder.com/600x300?text=Global+Spill" alt="Niger Delta oil spill">
+    </div>
+
+    <!-- Section 21: Future Challenges -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">21. Future Challenges</h2>
+      <p>Arctic drilling and deep-sea exploration increase spill risks, with cold climates slowing cleanup by 50%. Climate-driven storms raise spill likelihood by 20% by 2050. Developing nations lack resources for effective response. Research calls for global standards, eco-friendly fuels, and AI-driven monitoring to address these challenges and protect marine ecosystems.</p>
+      <img src="https://via.placeholder.com/600x300?text=Arctic+Drilling" alt="Arctic oil drilling site">
+    </div>
+
+    <!-- Section 22: Conclusion -->
+    <div class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">22. Conclusion</h2>
+      <p>Oil spills devastate marine ecosystems, killing wildlife and disrupting food chains. Deepwater Horizon and Exxon Valdez highlight the need for prevention and rapid response. Advanced technologies and regulations have reduced spills, but Arctic drilling and climate change pose new risks. Research, policy, and public action are essential to mitigate impacts and ensure sustainable marine ecosystems for future generations.</p>
+      <img src="https://via.placeholder.com/600x300?text=Healthy+Ocean" alt="Restored marine ecosystem">
+    </div>
+
+    <!-- References -->
+    <div id="references" class="section" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-800">References</h2>
+      <ul class="list-disc pl-5">
+        <li>NOAA. (2025). Oil Spills Resource. <a href="https://www.noaa.gov/education/resource-collections/ocean-coasts/oil-spills" class="text-blue-600 hover:underline">Link</a></li>
+        <li>NOAA. (2025). Oil Impacts. <a href="https://oceanservice.noaa.gov/facts/oilimpacts.html" class="text-blue-600 hover:underline">Link</a></li>
+        <li>NOAA. (2025). Deepwater Horizon. <a href="https://darrp.noaa.gov/oil-spills/deepwater-horizon" class="text-blue-600 hover:underline">Link</a></li>
+        <li>NOAA. (2025). Exxon Valdez. <a href="https://darrp.noaa.gov/oil-spills/exxon-valdez" class="text-blue-600 hover:underline">Link</a></li>
+        <li>NOAA. (2025). Largest Spills. <a href="https://response.restoration.noaa.gov/oil-and-chemical-spills/oil-spills/largest-oil-spills-affecting-us-waters-1969.html" class="text-blue-600 hover:underline">Link</a></li>
+        <li>MARKLEEN. (2025). Oil Spills and Marine Ecosystem. <a href="https://markleen.com/oil-spill-specialists/oil-spills-and-the-marine-ecosystem/" class="text-blue-600 hover:underline">Link</a></li>
+        <li>Environmental Science & Technology. (2020). Arctic Spill Risks. <a href="https://pubs.acs.org/doi/10.1021/acs.est.9b07086" class="text-blue-600 hover:underline">Link</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Oil Spills and Marine Ecosystem. Designed for environmental awareness.</p>
+  </footer>
+
+  <!-- Chart.js Script -->
+  <script>
+    AOS.init();
+    const ctx1 = document.getElementById('spillCausesChart').getContext('2d');
+    new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['Accidents', 'Natural Disasters', 'Human Errors'],
+        datasets: [{
+          data: [60, 25, 15],
+          backgroundColor: ['#1e40af', '#3b82f6', '#93c5fd'],
+        }]
+      },
+      options: { responsive: true }
+    });
+    const ctx2 = document.getElementById('impactSeverityChart').getContext('2d');
+    new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Wildlife Harm', 'Food Chain', 'Habitat Loss'],
+        datasets: [{
+          label: 'Severity (1-10)',
+          data: [9, 7, 8],
+          backgroundColor: '#1e40af'
+        }]
+      },
+      options: { responsive: true, scales: { y: { beginAtZero: true, max: 10 } } }
+    });
+  </script>
+</body>
+</html>
